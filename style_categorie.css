@@ -24,7 +24,9 @@ body {
     background-color: #f0eeee;
 }
 
-
+header {
+    border-bottom: 1px solid #54665E;
+}
 
 footer p {
     display: grid;
@@ -36,6 +38,12 @@ footer p {
 a {
     text-decoration: none;
     color: #1E1E1E;
+    margin-left: 30px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #0a7041;
     margin-left: 30px;
 }
 

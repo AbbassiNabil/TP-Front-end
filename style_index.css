@@ -2,11 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;  
+  font-family: sans-serif;
 }
 
 nav {
     background-color: #E1FDF0;
     
+}
+
+header {
+    border-bottom: 1px solid #54665E;
 }
 
 footer {
@@ -27,7 +32,7 @@ footer p {
 
 body {
     background-image: url(BGI.jpg);
-    background-size: 1400px;
+    background-size: 1800px;
     background-repeat: no-repeat;
 }
 
@@ -36,7 +41,7 @@ h1 {
     place-items: center;
     font-family: sans-serif;
     margin-top: 250px;
-    font-size: 60px;
+    font-size: 100px;
     text-shadow:
     2px 2px 3px rgb(18, 19, 18),
     0 0 1em rgb(128, 167, 194),
@@ -47,6 +52,12 @@ h1 {
 a {
     text-decoration: none;
     color: #1E1E1E;
+    margin-left: 30px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #0a7041;
     margin-left: 30px;
 }
 
