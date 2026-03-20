@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+li {
+    list-style: none;
+    font-size: 40px;
+}
+
+li:hover {
+    scale: 1.1;
+}

@@ -44,12 +44,19 @@ h1 {
     margin-top: 50px;
 }
 
-button{
+button {
     margin: 50px 450px ;
     padding: 10px 100px;
     background-color: #E1FDF0;
     border-radius: 20px;
     font-weight: 600;
+    border: 2px solid #54665E;
+}
+
+button:hover {
+    scale: 1.05;
+    box-shadow: 5px 5px 10px rgb(58, 56, 56);
+    transition: 0.3s;
 }
 
 
@@ -76,6 +83,13 @@ article {
     margin: 30px 0;
     background-color: #E1FDF0;
     border-radius: 10px;
+    border: 2px solid #54665E;
+}
+
+article:hover {
+    scale: 1.05;
+    box-shadow: 5px 5px 10px rgb(58, 56, 56);
+    transition: 0.3s;
 }
 
 #nav {
