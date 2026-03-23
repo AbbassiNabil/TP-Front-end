@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <script src="search_script.js" defer></script>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+    <header>
+
+        <nav>
+
+            <div  class="container" id="nav">
+
+                <a id="logo" href="index.html" title="Retoure vers la page d'accueil">
+                    <img src="logo.svg" alt="Logo">
+                </a>
+                
+                
+                <div id="list">
+
+                    <a href="categorie.html">Nos recettes</a>
+
+                    <a href="random.html">La roulette de la bouffe</a>
+
+                    <a href="first-letter.html">A - Z</a>
+
+                    <a href="search.html">Search</a>
+
+                </div>
+                
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <fieldset class="search-section">
+            <h1>Rechercher un plat</h1>
+            <input type="text" id="search-input" placeholder="Entrez le nom d'un plat (ex: Arrabiata)...">
+            <button id="search-button">Rechercher</button>
+        </fieldset>
+
+        <div id="results-container" class="grid-container">
+            </div>
+
+    </main>
+    
+</body>
+</html>
