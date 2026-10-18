@@ -99,18 +99,81 @@ a {
     border-bottom-color: var(--green);
 }
 
+/* pied de page : logo, liens du site, informations et copyright */
 footer {
     background-color: var(--green-dark);
     color: #D9D9D9;
     width: 100%;
-    padding: 20px 0;
+    padding: 50px 0 20px;
     margin-top: 60px;
     font-size: 14px;
+    /* le pied de page ne doit jamais être écrasé par le contenu */
+    flex-shrink: 0;
 }
 
-footer p {
+footer a {
+    color: #D9D9D9;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.footer-grid {
     display: grid;
-    place-items: center;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 40px;
+}
+
+/* logo noir rendu blanc pour rester lisible sur le fond vert foncé */
+.footer-logo img {
+    height: 50px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-brand p {
+    margin-top: 12px;
+    max-width: 320px;
+    line-height: 1.6;
+}
+
+footer h4 {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+
+footer ul {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+}
+
+footer h4 + p,
+footer p + p {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+footer p a {
+    text-decoration: underline;
+}
+
+/* sélecteur plus précis que .container, qui remettrait la marge à 0 */
+footer .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 13px;
 }
 
 .container{
@@ -127,7 +190,7 @@ button,
     background-color: var(--green-dark);
     color: white;
     border: none;
-    border-radius: var(--radius);
+    border-radius: 0;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
@@ -223,6 +286,11 @@ button:hover,
 
 /* petits écrans : les liens de la navigation passent à la ligne */
 @media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
     #nav {
         flex-direction: column;
         gap: 10px;

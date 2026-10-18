@@ -10,7 +10,7 @@ Les textes du site sont en anglais, comme les recettes fournies par l'API (TheMe
 
 | Page | Description |
 |---|---|
-| `index.html` | Page d'accueil. |
+| `index.html` | Page d'accueil : bandeau avec photo, puis une section de présentation (texte, photo, bouton) pour chaque page du site. |
 | `categorie.html` | « Our recipes » : affiche la liste des catégories de plats au clic sur le bouton. Un clic sur une catégorie ouvre ses recettes. |
 | `random.html` | « Food roulette » : propose un plat au hasard (nom, origine, instructions, ingrédients, photo). |
 | `first-letter.html` | « A - Z » : affiche les plats qui commencent par la lettre choisie. |
@@ -23,6 +23,7 @@ Si l'API ne répond pas, un message s'affiche sur la page.
 ## Structure
 
 `style_common.css` contient les styles partagés par toutes les pages (navigation, pied de page, conteneur, boutons, cartes de plats).
+Le pied de page (logo, liens vers toutes les pages, mention de TheMealDB, copyright) est le même sur toutes les pages.
 Chaque page possède ensuite sa propre feuille de style (`style_*.css`) et, si besoin, son propre script :
 
 - `script_categorie.js` : `categorie.html`

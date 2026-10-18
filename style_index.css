@@ -1,20 +1,19 @@
-/* voile sombre sur la photo pour que le titre reste lisible */
-body {
+/* bandeau d'accueil : photo avec un voile sombre pour que le titre reste lisible */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    min-height: 85vh;
+    padding: 60px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(BGI.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-}
-
-h1 {
+.hero h1 {
     font-size: 80px;
     text-align: center;
     color: white;
@@ -28,12 +27,66 @@ h1 {
     gap: 16px;
 }
 
-footer {
-    margin-top: 0;
+/* sections de présentation, une par page du site */
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    padding-top: 70px;
+}
+
+.features-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+/* image une fois à gauche, une fois à droite */
+.feature:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+.feature img {
+    width: 45%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-hover);
+}
+
+.feature div {
+    flex: 1;
+}
+
+.feature h3 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.feature p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
 }
 
 @media (max-width: 768px) {
-    h1 {
+    .hero h1 {
         font-size: 44px;
+    }
+
+    .feature,
+    .feature:nth-of-type(even) {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .feature img {
+        width: 100%;
     }
 }
