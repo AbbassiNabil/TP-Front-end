@@ -9,7 +9,7 @@ fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${encodeURIComponent
     .then((data) => {
         // identifiant absent, invalide ou inconnu : l'API renvoie null ou "Invalid ID"
         if (!Array.isArray(data.meals)) {
-            document.querySelector("#nom").textContent = "Recette introuvable.";
+            document.querySelector("#nom").textContent = "Recipe not found.";
             return;
         }
 
@@ -45,5 +45,5 @@ fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${encodeURIComponent
     // l'API ne répond pas
     .catch(() => {
         document.querySelector("#nom").textContent =
-            "Impossible de contacter le serveur. Réessayez plus tard.";
+            "Unable to reach the server. Please try again later.";
     });

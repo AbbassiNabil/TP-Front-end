@@ -41,6 +41,6 @@ BTN.addEventListener("click", function (event) {
         // l'API ne répond pas
         .catch(() => {
             document.querySelector("#nom").textContent =
-                "Impossible de contacter le serveur. Réessayez plus tard.";
+                "Unable to reach the server. Please try again later.";
         });
 });

@@ -20,7 +20,7 @@ async function searchMeals() {
     } catch {
         // l'API ne répond pas
         const errorMsg = document.createElement('p');
-        errorMsg.textContent = "Impossible de contacter le serveur. Réessayez plus tard.";
+        errorMsg.textContent = "Unable to reach the server. Please try again later.";
         errorMsg.style.color = "red";
         resultsContainer.appendChild(errorMsg);
         return;
@@ -29,7 +29,7 @@ async function searchMeals() {
     
     if (data.meals === null) {
         const errorMsg = document.createElement('p');
-        errorMsg.textContent = "Aucun plat trouvé pour cette recherche.";
+        errorMsg.textContent = "No dish found for this search.";
         errorMsg.style.color = "red"; 
         resultsContainer.appendChild(errorMsg);
         return;

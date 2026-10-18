@@ -23,7 +23,7 @@ alphabetItems.forEach(item => {
                 // aucun plat pour cette lettre : l'API renvoie meals = null
                 if (data.meals === null) {
                     const errorMsg = document.createElement('p');
-                    errorMsg.textContent = "Aucun plat trouvé pour cette lettre.";
+                    errorMsg.textContent = "No dish found for this letter.";
                     resultContainer.appendChild(errorMsg);
                     return;
                 }
@@ -53,7 +53,7 @@ alphabetItems.forEach(item => {
             })
             // l'API ne répond pas
             .catch(() => {
-                resultContainer.textContent = "Impossible de contacter le serveur. Réessayez plus tard.";
+                resultContainer.textContent = "Unable to reach the server. Please try again later.";
             });
     });
 });
