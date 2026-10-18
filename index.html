@@ -1,136 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mangiarbene</title>
-    <link rel="stylesheet" href="style_common.css">
-    <link rel="stylesheet" href="style_index.css">
-</head>
-<body>
-
+    <script src="script_nav.js" defer></script>
+    <link rel="stylesheet" href="style_common.css" />
+    <link rel="stylesheet" href="style_index.css" />
+  </head>
+  <body class="home">
     <header>
+      <nav>
+        <div class="container" id="nav">
+          <div class="nav-left">
+            <a href="categorie.html">Our recipes</a>
+            <a href="random.html">Food roulette</a>
+          </div>
 
-        <nav>
+          <a id="logo" href="index.html" title="Back to home page">
+            <img src="logo.svg" alt="Logo" />
+          </a>
 
-            <div  class="container" id="nav">
-
-                <a id="logo" href="index.html" title="Back to home page">
-                    <img src="logo.svg" alt="Logo">
-                </a>
-                
-                
-                <div id="list">
-
-                    <a href="categorie.html">Our recipes</a>
-
-                    <a href="random.html">Food roulette</a>
-
-                    <a href="first-letter.html">A - Z</a>
-
-                    <a href="search.html">Search</a>
-
-                </div>
-                
-            </div>
-
-        </nav>
-
+          <div class="nav-right">
+            <a href="first-letter.html">A - Z</a>
+            <a href="search.html">Search</a>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
+      <section class="hero">
+        <h1>Find your meal idea</h1>
 
-        <section class="hero">
+        <div class="hero-actions">
+          <a class="btn" href="random.html">Discover a random dish</a>
+          <a class="btn secondary" href="search.html">Search a dish</a>
+        </div>
+      </section>
 
-            <h1>Find your meal idea</h1>
+      <section class="container features">
+        <h2 class="features-title">What can you do on Mangiarbene?</h2>
 
-            <div class="hero-actions">
-                <a class="btn" href="random.html">Discover a random dish</a>
-                <a class="btn secondary" href="search.html">Search a dish</a>
-            </div>
+        <article class="feature">
+          <img
+            src="https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg/medium"
+            alt="Beef Wellington"
+            loading="lazy"
+          />
+          <div>
+            <h3>Our recipes</h3>
+            <p>
+              Beef, chicken, seafood, vegan, desserts… Explore 14 categories and
+              find the dishes that match your cravings.
+            </p>
+            <a class="btn" href="categorie.html">See categories</a>
+          </div>
+        </article>
 
-        </section>
+        <article class="feature">
+          <img
+            src="https://www.themealdb.com/images/media/meals/g373701551450225.jpg/medium"
+            alt="Shakshuka"
+            loading="lazy"
+          />
+          <div>
+            <h3>Food roulette</h3>
+            <p>
+              Can't decide what to cook? Let chance pick a dish for you, with
+              its full recipe and ingredients.
+            </p>
+            <a class="btn" href="random.html">Spin the roulette</a>
+          </div>
+        </article>
 
-        <section class="container features">
+        <article class="feature">
+          <img
+            src="https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg/medium"
+            alt="Apple Frangipan Tart"
+            loading="lazy"
+          />
+          <div>
+            <h3>A - Z</h3>
+            <p>
+              Already have a dish in mind? Browse every recipe alphabetically,
+              from A to Z.
+            </p>
+            <a class="btn" href="first-letter.html">Browse A - Z</a>
+          </div>
+        </article>
 
-            <h2 class="features-title">What can you do on Mangiarbene?</h2>
-
-            <article class="feature">
-                <img src="https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg/medium" alt="Beef Wellington" loading="lazy">
-                <div>
-                    <h3>Our recipes</h3>
-                    <p>Beef, chicken, seafood, vegan, desserts… Explore 14 categories and find the dishes that match your cravings.</p>
-                    <a class="btn" href="categorie.html">See categories</a>
-                </div>
-            </article>
-
-            <article class="feature">
-                <img src="https://www.themealdb.com/images/media/meals/g373701551450225.jpg/medium" alt="Shakshuka" loading="lazy">
-                <div>
-                    <h3>Food roulette</h3>
-                    <p>Can't decide what to cook? Let chance pick a dish for you, with its full recipe and ingredients.</p>
-                    <a class="btn" href="random.html">Spin the roulette</a>
-                </div>
-            </article>
-
-            <article class="feature">
-                <img src="https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg/medium" alt="Apple Frangipan Tart" loading="lazy">
-                <div>
-                    <h3>A - Z</h3>
-                    <p>Already have a dish in mind? Browse every recipe alphabetically, from A to Z.</p>
-                    <a class="btn" href="first-letter.html">Browse A - Z</a>
-                </div>
-            </article>
-
-            <article class="feature">
-                <img src="https://www.themealdb.com/images/media/meals/g046bb1663960946.jpg/medium" alt="Sushi" loading="lazy">
-                <div>
-                    <h3>Search</h3>
-                    <p>Look for a dish by its name or by its country of origin, among 63 countries.</p>
-                    <a class="btn" href="search.html">Search a dish</a>
-                </div>
-            </article>
-
-        </section>
-
+        <article class="feature">
+          <img
+            src="https://www.themealdb.com/images/media/meals/g046bb1663960946.jpg/medium"
+            alt="Sushi"
+            loading="lazy"
+          />
+          <div>
+            <h3>Search</h3>
+            <p>
+              Look for a dish by its name or by its country of origin, among 63
+              countries.
+            </p>
+            <a class="btn" href="search.html">Search a dish</a>
+          </div>
+        </article>
+      </section>
     </main>
 
     <footer>
-
-        <div class="container footer-grid">
-
-            <div class="footer-brand">
-                <a href="index.html" class="footer-logo" title="Back to home page">
-                    <img src="logo.svg" alt="Mangiarbene">
-                </a>
-                <p>Find your meal idea among hundreds of recipes from around the world.</p>
-            </div>
-
-            <div>
-                <h4>Explore</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="categorie.html">Our recipes</a></li>
-                    <li><a href="random.html">Food roulette</a></li>
-                    <li><a href="first-letter.html">A - Z</a></li>
-                    <li><a href="search.html">Search</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>About</h4>
-                <p>Recipes and photos provided by <a href="https://www.themealdb.com" target="_blank" rel="noopener">TheMealDB</a>.</p>
-                <p>Front-end project built with HTML, CSS and JavaScript.</p>
-            </div>
-
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo" title="Back to home page">
+            <img src="logo.svg" alt="Mangiarbene" />
+          </a>
+          <p>
+            Find your meal idea among hundreds of recipes from around the world.
+          </p>
         </div>
 
-        <div class="container footer-bottom">
-            <p>&copy; 2026 Abbassi Nabil. All rights reserved.</p>
-            <a href="#">Back to top</a>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categorie.html">Our recipes</a></li>
+            <li><a href="random.html">Food roulette</a></li>
+            <li><a href="first-letter.html">A - Z</a></li>
+            <li><a href="search.html">Search</a></li>
+          </ul>
         </div>
 
+        <div>
+          <h4>About</h4>
+          <p>
+            Recipes and photos provided by
+            <a href="https://www.themealdb.com" target="_blank" rel="noopener"
+              >TheMealDB</a
+            >.
+          </p>
+          <p>Front-end project built with HTML, CSS and JavaScript.</p>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>&copy; 2026 Abbassi Nabil. All rights reserved.</p>
+        <a href="#">Back to top</a>
+      </div>
     </footer>
-
-</body>
+  </body>
 </html>

@@ -66,6 +66,12 @@ header {
     z-index: 10;
     background-color: var(--mint);
     border-bottom: 1px solid rgba(84, 102, 94, 0.2);
+    transition: transform 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+/* barre cachée en descendant (classe ajoutée par script_nav.js) */
+header.nav-hidden {
+    transform: translateY(-100%);
 }
 
 a {
@@ -73,16 +79,39 @@ a {
     color: var(--text);
 }
 
+/* logo au centre, deux liens de chaque côté */
 #nav {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "left logo right";
     align-items: center;
+    column-gap: 48px;
     padding: 10px 0
 }
 
 #nav div {
     display: flex;
     gap: 30px;
+}
+
+.nav-left {
+    grid-area: left;
+    justify-content: flex-end;
+}
+
+.nav-right {
+    grid-area: right;
+    justify-content: flex-start;
+}
+
+#logo {
+    grid-area: logo;
+    justify-self: center;
+}
+
+#logo img {
+    display: block;
+    height: 74px;
 }
 
 #nav div a {
@@ -291,14 +320,19 @@ button:hover,
         gap: 30px;
     }
 
+    /* logo en haut, liens en dessous */
     #nav {
-        flex-direction: column;
-        gap: 10px;
+        grid-template-columns: auto auto;
+        grid-template-areas:
+            "logo logo"
+            "left right";
+        justify-content: center;
+        column-gap: 16px;
+        row-gap: 10px;
     }
 
     #nav div {
         flex-wrap: wrap;
-        justify-content: center;
         gap: 16px;
     }
 }

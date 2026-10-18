@@ -1,108 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe</title>
     <script src="script_meal.js" defer></script>
-    <link rel="stylesheet" href="style_common.css">
-    <link rel="stylesheet" href="style_random.css">
-</head>
-<body>
-
+    <script src="script_nav.js" defer></script>
+    <link rel="stylesheet" href="style_common.css" />
+    <link rel="stylesheet" href="style_random.css" />
+  </head>
+  <body>
     <header>
+      <nav>
+        <div class="container" id="nav">
+          <div class="nav-left">
+            <a href="categorie.html">Our recipes</a>
+            <a href="random.html">Food roulette</a>
+          </div>
 
-        <nav>
+          <a id="logo" href="index.html" title="Back to home page">
+            <img src="logo.svg" alt="Logo" />
+          </a>
 
-            <div  class="container" id="nav">
-
-                <a id="logo" href="index.html" title="Back to home page">
-                    <img src="logo.svg" alt="Logo">
-                </a>
-
-
-                <div>
-
-                    <a href="categorie.html">Our recipes</a>
-
-                    <a href="random.html">Food roulette</a>
-
-                    <a href="first-letter.html">A - Z</a>
-
-                    <a href="search.html">Search</a>
-
-                </div>
-
-            </div>
-
-        </nav>
-
+          <div class="nav-right">
+            <a href="first-letter.html">A - Z</a>
+            <a href="search.html">Search</a>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main class="container">
+      <section>
+        <article id="le_flex_rand">
+          <div>
+            <p id="nom"></p>
+            <p id="area"></p>
+            <p id="description"></p>
+            <h2 id="ingr-title" hidden>Ingredients</h2>
+            <ul id="ingr"></ul>
+          </div>
 
-        <section>
-
-            <article id="le_flex_rand">
-
-                <div>
-                    <p id="nom"></p>
-                    <p id="area"></p>
-                    <p id="description"></p>
-                    <h2 id="ingr-title" hidden>Ingredients</h2>
-                    <ul id="ingr"></ul>
-
-                </div>
-
-
-                <div>
-                    <figure id="la_fig"></figure>
-                </div>
-
-            </article>
-
-        </section>
-
-
+          <div>
+            <figure id="la_fig"></figure>
+          </div>
+        </article>
+      </section>
     </main>
 
     <footer>
-
-        <div class="container footer-grid">
-
-            <div class="footer-brand">
-                <a href="index.html" class="footer-logo" title="Back to home page">
-                    <img src="logo.svg" alt="Mangiarbene">
-                </a>
-                <p>Find your meal idea among hundreds of recipes from around the world.</p>
-            </div>
-
-            <div>
-                <h4>Explore</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="categorie.html">Our recipes</a></li>
-                    <li><a href="random.html">Food roulette</a></li>
-                    <li><a href="first-letter.html">A - Z</a></li>
-                    <li><a href="search.html">Search</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>About</h4>
-                <p>Recipes and photos provided by <a href="https://www.themealdb.com" target="_blank" rel="noopener">TheMealDB</a>.</p>
-                <p>Front-end project built with HTML, CSS and JavaScript.</p>
-            </div>
-
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo" title="Back to home page">
+            <img src="logo.svg" alt="Mangiarbene" />
+          </a>
+          <p>
+            Find your meal idea among hundreds of recipes from around the world.
+          </p>
         </div>
 
-        <div class="container footer-bottom">
-            <p>&copy; 2026 Abbassi Nabil. All rights reserved.</p>
-            <a href="#">Back to top</a>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categorie.html">Our recipes</a></li>
+            <li><a href="random.html">Food roulette</a></li>
+            <li><a href="first-letter.html">A - Z</a></li>
+            <li><a href="search.html">Search</a></li>
+          </ul>
         </div>
 
+        <div>
+          <h4>About</h4>
+          <p>
+            Recipes and photos provided by
+            <a href="https://www.themealdb.com" target="_blank" rel="noopener"
+              >TheMealDB</a
+            >.
+          </p>
+          <p>Front-end project built with HTML, CSS and JavaScript.</p>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>&copy; 2026 Abbassi Nabil. All rights reserved.</p>
+        <a href="#">Back to top</a>
+      </div>
     </footer>
-
-
-</body>
+  </body>
 </html>

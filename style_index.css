@@ -1,3 +1,40 @@
+/* page d'accueil : la barre passe au-dessus du bandeau, transparente */
+.home header {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.home header:not(.nav-solid) {
+    background-color: transparent;
+    border-bottom-color: transparent;
+}
+
+/* sur le bandeau : logo en haut au centre, liens en dessous */
+.home header:not(.nav-solid) #nav {
+    grid-template-columns: auto auto;
+    grid-template-areas:
+        "logo logo"
+        "left right";
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 10px;
+}
+
+/* logo et liens en blanc tant que la barre est sur la photo */
+.home header:not(.nav-solid) #logo img {
+    /* ombre légère pour détacher le logo de la photo */
+    filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.home header:not(.nav-solid) #nav div a {
+    color: white;
+}
+
+.home header:not(.nav-solid) #nav div a:hover {
+    border-bottom-color: white;
+}
+
 /* bandeau d'accueil : photo avec un voile sombre pour que le titre reste lisible */
 .hero {
     display: flex;
@@ -5,8 +42,10 @@
     justify-content: center;
     align-items: center;
     gap: 40px;
-    min-height: 85vh;
-    padding: 60px 20px;
+    /* bandeau sur tout l'écran (svh tient compte de la barre d'adresse des téléphones) */
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 170px 20px 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(BGI.jpg);
     background-size: cover;
     background-position: center;
@@ -76,6 +115,11 @@
 }
 
 @media (max-width: 768px) {
+    /* même espace entre les deux groupes de liens qu'entre les liens */
+    .home header:not(.nav-solid) #nav {
+        column-gap: 16px;
+    }
+
     .hero h1 {
         font-size: 44px;
     }
