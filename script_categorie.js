@@ -4,7 +4,10 @@ BTN.addEventListener("click", function (event) {
     event.preventDefault();
 
     // message d'attente pendant la réponse de l'API
-    document.querySelector("#div_flex").innerHTML = '<p class="message">Loading...</p>';
+    const MSG = document.createElement("p");
+    MSG.className = "message";
+    MSG.textContent = "Loading...";
+    document.querySelector("#div_flex").replaceChildren(MSG);
 
     fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
         .then((response) => {
@@ -36,7 +39,9 @@ BTN.addEventListener("click", function (event) {
 
         // l'API ne répond pas
         .catch(() => {
-            document.querySelector("#div_flex").innerHTML =
-                '<p class="message">Unable to reach the server. Please try again later.</p>';
+            const MSG = document.createElement("p");
+            MSG.className = "message";
+            MSG.textContent = "Unable to reach the server. Please try again later.";
+            document.querySelector("#div_flex").replaceChildren(MSG);
         });
 });

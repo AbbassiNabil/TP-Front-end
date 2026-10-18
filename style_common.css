@@ -1,5 +1,27 @@
 /* styles communs à toutes les pages : navigation, pied de page, conteneur, boutons, cartes */
 
+/* police Poppins hébergée dans le projet (dossier fonts/), sans dépendre de Google Fonts */
+@font-face {
+    font-family: 'Poppins';
+    src: url(fonts/poppins-400.woff2) format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(fonts/poppins-600.woff2) format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(fonts/poppins-700.woff2) format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
 /* couleurs, arrondis et ombres utilisés dans tout le site */
 :root {
     --green-dark: #54665E;

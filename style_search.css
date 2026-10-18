@@ -26,7 +26,26 @@
     box-shadow: var(--shadow);
 }
 
-#search-input:focus {
+#search-input:focus,
+#country-select:focus {
     outline: none;
     border-color: var(--green);
+}
+
+/* liste déroulante des pays */
+#country-select {
+    padding: 12px 16px;
+    font-size: 15px;
+    background-color: white;
+    border-radius: var(--radius);
+    border: 1px solid rgba(84, 102, 94, 0.4);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+/* bouton avec l'icône de loupe */
+#search-button {
+    display: grid;
+    place-items: center;
+    padding: 12px 18px;
 }

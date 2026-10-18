@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <script src="search_script.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style_common.css">
     <link rel="stylesheet" href="style_search.css">
 </head>
@@ -47,7 +44,15 @@
         <fieldset class="search-section">
             <h1>Search for a dish</h1>
             <input type="text" id="search-input" placeholder="Enter a dish name (e.g. Arrabiata)...">
-            <button id="search-button">Search</button>
+            <select id="country-select" aria-label="Country">
+                <option value="">All countries</option>
+            </select>
+            <button id="search-button" aria-label="Search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                </svg>
+            </button>
         </fieldset>
 
         <div id="results-container" class="grid-container"></div>

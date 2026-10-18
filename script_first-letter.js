@@ -17,7 +17,10 @@ alphabetItems.forEach(item => {
         item.classList.add('active');
         
         // vider le conteneur et afficher un message d'attente
-        resultContainer.innerHTML = '<p class="message">Loading...</p>';
+        const msg = document.createElement('p');
+        msg.className = 'message';
+        msg.textContent = "Loading...";
+        resultContainer.replaceChildren(msg);
 
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`)
             .then((response) => {
@@ -62,7 +65,10 @@ alphabetItems.forEach(item => {
             })
             // l'API ne répond pas
             .catch(() => {
-                resultContainer.innerHTML = '<p class="message">Unable to reach the server. Please try again later.</p>';
+                const msg = document.createElement('p');
+                msg.className = 'message';
+                msg.textContent = "Unable to reach the server. Please try again later.";
+                resultContainer.replaceChildren(msg);
             });
     });
 });

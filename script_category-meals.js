@@ -6,7 +6,10 @@ document.querySelector("#category-title").textContent = `${CATEGORY} recipes`;
 document.title = `${CATEGORY} recipes`;
 
 // message d'attente pendant la réponse de l'API
-RESULT.innerHTML = '<p class="message">Loading...</p>';
+const MSG = document.createElement("p");
+MSG.className = "message";
+MSG.textContent = "Loading...";
+RESULT.replaceChildren(MSG);
 
 fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(CATEGORY)}`)
     .then((response) => {
@@ -18,7 +21,10 @@ fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent
 
         // catégorie absente ou inconnue : l'API renvoie meals = null
         if (data.meals === null) {
-            RESULT.innerHTML = '<p class="message">No dish found for this category.</p>';
+            const MSG = document.createElement("p");
+            MSG.className = "message";
+            MSG.textContent = "No dish found for this category.";
+            RESULT.replaceChildren(MSG);
             return;
         }
 
@@ -53,5 +59,8 @@ fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent
 
     // l'API ne répond pas
     .catch(() => {
-        RESULT.innerHTML = '<p class="message">Unable to reach the server. Please try again later.</p>';
+        const MSG = document.createElement("p");
+        MSG.className = "message";
+        MSG.textContent = "Unable to reach the server. Please try again later.";
+        RESULT.replaceChildren(MSG);
     });

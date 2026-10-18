@@ -3,7 +3,7 @@
 Site web de recettes réalisé en HTML, CSS et JavaScript (sans framework).
 Les données proviennent de l'API publique [TheMealDB](https://www.themealdb.com/api.php).
 Le site s'adapte aux petits écrans (téléphone, tablette).
-Police : Poppins (Google Fonts).
+Police : Poppins, hébergée dans le dossier `fonts/` (licence SIL Open Font License), sans dépendre de Google Fonts.
 Les textes du site sont en anglais, comme les recettes fournies par l'API (TheMealDB n'existe qu'en anglais).
 
 ## Pages
@@ -14,7 +14,7 @@ Les textes du site sont en anglais, comme les recettes fournies par l'API (TheMe
 | `categorie.html` | « Our recipes » : affiche la liste des catégories de plats au clic sur le bouton. Un clic sur une catégorie ouvre ses recettes. |
 | `random.html` | « Food roulette » : propose un plat au hasard (nom, origine, instructions, ingrédients, photo). |
 | `first-letter.html` | « A - Z » : affiche les plats qui commencent par la lettre choisie. |
-| `search.html` | « Search » : recherche un plat par son nom (bouton ou touche Entrée). |
+| `search.html` | « Search » : recherche un plat par son nom (bouton loupe ou touche Entrée) et/ou par pays (liste déroulante des 63 pays qui ont des plats dans l'API). |
 | `category-meals.html` | Recettes d'une catégorie (`category-meals.html?c=Beef`), avec un lien de retour vers les catégories. |
 | `meal.html` | Recette complète d'un plat, ouverte au clic sur un plat des pages « A - Z » et « Search » (`meal.html?id=...`). |
 
