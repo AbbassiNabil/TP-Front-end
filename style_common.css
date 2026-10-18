@@ -2,337 +2,347 @@
 
 /* police Poppins hébergée dans le projet (dossier fonts/), sans dépendre de Google Fonts */
 @font-face {
-    font-family: 'Poppins';
-    src: url(fonts/poppins-400.woff2) format('woff2');
-    font-weight: 400;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url(fonts/poppins-400.woff2) format("woff2");
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url(fonts/poppins-600.woff2) format('woff2');
-    font-weight: 600;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url(fonts/poppins-600.woff2) format("woff2");
+  font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url(fonts/poppins-700.woff2) format('woff2');
-    font-weight: 700;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url(fonts/poppins-700.woff2) format("woff2");
+  font-weight: 700;
+  font-display: swap;
 }
 
 /* couleurs, arrondis et ombres utilisés dans tout le site */
 :root {
-    --green-dark: #54665E;
-    --green: #0a7041;
-    --mint: #E1FDF0;
-    --bg: #faf9f6;
-    --text: #1E1E1E;
-    --muted: #6b7570;
-    --radius: 6px;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.14);
+  --green-dark: #54665e;
+  --green: #0a7041;
+  --mint: #e1fdf0;
+  --bg: #faf9f6;
+  --text: #1e1e1e;
+  --muted: #6b7570;
+  --radius: 6px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.14);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 /* le pied de page reste en bas même quand la page est courte */
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: var(--bg);
-    color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
 h1 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 /* barre de navigation fixée en haut pendant le défilement */
 header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background-color: var(--mint);
-    border-bottom: 1px solid rgba(84, 102, 94, 0.2);
-    transition: transform 0.3s, background-color 0.3s, border-color 0.3s;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--mint);
+  border-bottom: 1px solid rgba(84, 102, 94, 0.2);
+  transition:
+    transform 0.3s,
+    background-color 0.3s,
+    border-color 0.3s;
 }
 
 /* barre cachée en descendant (classe ajoutée par script_nav.js) */
 header.nav-hidden {
-    transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 
 a {
-    text-decoration: none;
-    color: var(--text);
+  text-decoration: none;
+  color: var(--text);
 }
 
 /* logo au centre, deux liens de chaque côté */
 #nav {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-areas: "left logo right";
-    align-items: center;
-    column-gap: 48px;
-    padding: 10px 0
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "left logo right";
+  align-items: center;
+  column-gap: 48px;
+  padding: 10px 0;
 }
 
 #nav div {
-    display: flex;
-    gap: 30px;
+  display: flex;
+  gap: 30px;
 }
 
 .nav-left {
-    grid-area: left;
-    justify-content: flex-end;
+  grid-area: left;
+  justify-content: flex-end;
 }
 
 .nav-right {
-    grid-area: right;
-    justify-content: flex-start;
+  grid-area: right;
+  justify-content: flex-start;
 }
 
 #logo {
-    grid-area: logo;
-    justify-self: center;
+  grid-area: logo;
+  justify-self: center;
 }
 
 #logo img {
-    display: block;
-    height: 74px;
+  display: block;
+  height: 74px;
 }
 
 #nav div a {
-    font-weight: 400;
-    padding-bottom: 4px;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
+  font-weight: 400;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 }
 
 /* page actuelle mise en évidence dans le menu */
 #nav div a:hover,
 #nav div a.active {
-    color: var(--green);
-    border-bottom-color: var(--green);
+  color: var(--green);
+  border-bottom-color: var(--green);
 }
 
 /* pied de page : logo, liens du site, informations et copyright */
 footer {
-    background-color: var(--green-dark);
-    color: #D9D9D9;
-    width: 100%;
-    padding: 50px 0 20px;
-    margin-top: 60px;
-    font-size: 14px;
-    /* le pied de page ne doit jamais être écrasé par le contenu */
-    flex-shrink: 0;
+  background-color: var(--green-dark);
+  color: #d9d9d9;
+  width: 100%;
+  padding: 50px 0 20px;
+  margin-top: 60px;
+  font-size: 14px;
+  /* le pied de page ne doit jamais être écrasé par le contenu */
+  flex-shrink: 0;
 }
 
 footer a {
-    color: #D9D9D9;
-    transition: color 0.2s;
+  color: #d9d9d9;
+  transition: color 0.2s;
 }
 
 footer a:hover {
-    color: white;
+  color: white;
 }
 
 .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr;
-    gap: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 40px;
 }
 
 /* logo noir rendu blanc pour rester lisible sur le fond vert foncé */
 .footer-logo img {
-    height: 50px;
-    filter: brightness(0) invert(1);
+  height: 50px;
+  filter: brightness(0) invert(1);
 }
 
 .footer-brand p {
-    margin-top: 12px;
-    max-width: 320px;
-    line-height: 1.6;
+  margin-top: 12px;
+  max-width: 320px;
+  line-height: 1.6;
 }
 
 footer h4 {
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
 }
 
 footer ul {
-    list-style: none;
-    display: grid;
-    gap: 8px;
+  list-style: none;
+  display: grid;
+  gap: 8px;
 }
 
 footer h4 + p,
 footer p + p {
-    line-height: 1.6;
-    margin-bottom: 8px;
+  line-height: 1.6;
+  margin-bottom: 8px;
 }
 
 footer p a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* sélecteur plus précis que .container, qui remettrait la marge à 0 */
 footer .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 13px;
 }
 
-.container{
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* même style pour tous les boutons du site */
 button,
 .btn {
-    display: inline-block;
-    padding: 12px 32px;
-    background-color: var(--green-dark);
-    color: white;
-    border: none;
-    border-radius: 0;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: var(--green-dark);
+  color: white;
+  border: none;
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 button:hover,
 .btn:hover {
-    background-color: var(--green);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+  background-color: var(--green);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
 }
 
 /* bouton secondaire (clair) */
 .btn.secondary {
-    background-color: white;
-    color: var(--green-dark);
+  background-color: white;
+  color: var(--green-dark);
 }
 
 .btn.secondary:hover {
-    background-color: var(--mint);
+  background-color: var(--mint);
 }
 
 /* grille de cartes de plats (pages A - Z et Search) */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
 }
 
 .meal-card {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  text-align: center;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .meal-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 
 .meal-card a {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /* toutes les images ont les mêmes proportions */
 .meal-card img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    transition: transform 0.3s;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.3s;
 }
 
 .meal-card:hover img {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* le texte reste au-dessus de l'image agrandie au survol */
 .meal-card h3,
 .meal-card a p {
-    padding: 14px 16px;
-    font-size: 16px;
-    font-weight: 600;
-    position: relative;
-    background-color: white;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  background-color: white;
 }
 
 .meal-card h3 {
-    padding-bottom: 4px;
+  padding-bottom: 4px;
 }
 
 /* catégorie du plat (page Search) */
 .meal-card > p {
-    padding: 0 16px 14px;
-    font-size: 14px;
-    color: var(--muted);
+  padding: 0 16px 14px;
+  font-size: 14px;
+  color: var(--muted);
 }
 
 /* messages (chargement, aucun résultat, erreur) sur toute la largeur de la grille */
 .message {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: var(--muted);
-    padding: 20px 0;
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--muted);
+  padding: 20px 0;
 }
 
 /* petits écrans : les liens de la navigation passent à la ligne */
 @media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 
-    /* logo en haut, liens en dessous */
-    #nav {
-        grid-template-columns: auto auto;
-        grid-template-areas:
-            "logo logo"
-            "left right";
-        justify-content: center;
-        column-gap: 16px;
-        row-gap: 10px;
-    }
+  /* logo en haut, liens en dessous */
+  #nav {
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "logo logo"
+      "left right";
+    justify-content: center;
+    column-gap: 16px;
+    row-gap: 10px;
+  }
 
-    #nav div {
-        flex-wrap: wrap;
-        gap: 16px;
-    }
+  #nav div {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
 }

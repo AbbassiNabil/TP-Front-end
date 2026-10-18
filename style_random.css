@@ -1,94 +1,95 @@
 #titolo {
-    display: grid;
-    place-self: center;
-    gap: 6px;
-    margin-top: 50px;
+  display: grid;
+  place-self: center;
+  gap: 6px;
+  margin-top: 50px;
 }
 
-#titolo p, #titolo span   {
-    text-align: center;
+#titolo p,
+#titolo span {
+  text-align: center;
 }
 
 #titolo span {
-    color: var(--muted);
+  color: var(--muted);
 }
 
 #roulette {
-    justify-self: center;
-    margin-top: 14px;
+  justify-self: center;
+  margin-top: 14px;
 }
 
 #le_flex_rand {
-    display: flex;
-    flex-direction: row;
-    gap: 48px;
-    margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  margin-top: 50px;
 }
 
 /* texte 60 % et photo 40 % de la largeur */
 #le_flex_rand > div:first-child {
-    flex: 3;
+  flex: 3;
 }
 
 #le_flex_rand > div:last-child {
-    flex: 2;
+  flex: 2;
 }
 
 #la_fig img {
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-hover);
-    width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hover);
+  width: 100%;
 }
 
 #nom {
-    font-size: 34px;
-    font-weight: 700;
-    margin: 0 0 12px 0;
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
 }
 
 /* origine du plat sous forme d'étiquette */
 #area {
-    display: inline-block;
-    padding: 4px 12px;
-    margin-bottom: 24px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--green);
-    background-color: var(--mint);
-    border-radius: var(--radius);
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  background-color: var(--mint);
+  border-radius: var(--radius);
 }
 
 #area:empty {
-    display: none;
+  display: none;
 }
 
 #description {
-    line-height: 1.7;
-    margin-bottom: 32px;
+  line-height: 1.7;
+  margin-bottom: 32px;
 }
 
 #ingr-title {
-    font-size: 20px;
-    margin-bottom: 12px;
+  font-size: 20px;
+  margin-bottom: 12px;
 }
 
 /* liste des ingrédients avec des puces */
 #ingr {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 8px 24px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px 24px;
 }
 
 #ingr li::before {
-    content: "•";
-    color: var(--green);
-    font-weight: 700;
-    margin-right: 8px;
+  content: "•";
+  color: var(--green);
+  font-weight: 700;
+  margin-right: 8px;
 }
 
 @media (max-width: 768px) {
-    #le_flex_rand {
-        flex-direction: column;
-    }
+  #le_flex_rand {
+    flex-direction: column;
+  }
 }

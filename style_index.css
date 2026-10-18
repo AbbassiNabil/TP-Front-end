@@ -1,136 +1,137 @@
 /* page d'accueil : la barre passe au-dessus du bandeau, transparente */
 .home header {
-    position: fixed;
-    left: 0;
-    right: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 
 .home header:not(.nav-solid) {
-    background-color: transparent;
-    border-bottom-color: transparent;
+  background-color: transparent;
+  border-bottom-color: transparent;
 }
 
 /* sur le bandeau : logo en haut au centre, liens en dessous */
 .home header:not(.nav-solid) #nav {
-    grid-template-columns: auto auto;
-    grid-template-areas:
-        "logo logo"
-        "left right";
-    justify-content: center;
-    column-gap: 30px;
-    row-gap: 10px;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    "logo logo"
+    "left right";
+  justify-content: center;
+  column-gap: 30px;
+  row-gap: 10px;
 }
 
 /* logo et liens en blanc tant que la barre est sur la photo */
 .home header:not(.nav-solid) #logo img {
-    /* ombre légère pour détacher le logo de la photo */
-    filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  /* ombre légère pour détacher le logo de la photo */
+  filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
 }
 
 .home header:not(.nav-solid) #nav div a {
-    color: white;
+  color: white;
 }
 
 .home header:not(.nav-solid) #nav div a:hover {
-    border-bottom-color: white;
+  border-bottom-color: white;
 }
 
 /* bandeau d'accueil : photo avec un voile sombre pour que le titre reste lisible */
 .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    /* bandeau sur tout l'écran (svh tient compte de la barre d'adresse des téléphones) */
-    min-height: 100vh;
-    min-height: 100svh;
-    padding: 170px 20px 60px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(BGI.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  /* bandeau sur tout l'écran (svh tient compte de la barre d'adresse des téléphones) */
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 170px 20px 60px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(BGI.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero h1 {
-    font-size: 80px;
-    text-align: center;
-    color: white;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  font-size: 80px;
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
 .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
 }
 
 /* sections de présentation, une par page du site */
 .features {
-    display: flex;
-    flex-direction: column;
-    gap: 70px;
-    padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  padding-top: 70px;
 }
 
 .features-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 .feature {
-    display: flex;
-    align-items: center;
-    gap: 48px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
 }
 
 /* image une fois à gauche, une fois à droite */
 .feature:nth-of-type(even) {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .feature img {
-    width: 45%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-hover);
+  width: 45%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hover);
 }
 
 .feature div {
-    flex: 1;
+  flex: 1;
 }
 
 .feature h3 {
-    font-size: 26px;
-    margin-bottom: 12px;
+  font-size: 26px;
+  margin-bottom: 12px;
 }
 
 .feature p {
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 24px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
 }
 
 @media (max-width: 768px) {
-    /* même espace entre les deux groupes de liens qu'entre les liens */
-    .home header:not(.nav-solid) #nav {
-        column-gap: 16px;
-    }
+  /* même espace entre les deux groupes de liens qu'entre les liens */
+  .home header:not(.nav-solid) #nav {
+    column-gap: 16px;
+  }
 
-    .hero h1 {
-        font-size: 44px;
-    }
+  .hero h1 {
+    font-size: 44px;
+  }
 
-    .feature,
-    .feature:nth-of-type(even) {
-        flex-direction: column;
-        gap: 24px;
-    }
+  .feature,
+  .feature:nth-of-type(even) {
+    flex-direction: column;
+    gap: 24px;
+  }
 
-    .feature img {
-        width: 100%;
-    }
+  .feature img {
+    width: 100%;
+  }
 }
