@@ -1,0 +1,143 @@
+/* styles communs à toutes les pages : navigation, pied de page, conteneur */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* le pied de page reste en bas même quand la page est courte */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+nav {
+    background-color: #E1FDF0;
+}
+
+header {
+    border-bottom: 1px solid #54665E;
+}
+
+footer {
+    background-color: #54665E;
+    color: #D9D9D9;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 86px;
+    padding-top: 30px;
+    margin-top: 50px;
+}
+
+footer p {
+    display: grid;
+    place-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #1E1E1E;
+    margin-left: 30px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #0a7041;
+    margin-left: 30px;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0
+}
+
+/* le logo reste aligné avec le contenu de la page */
+#logo,
+#logo:hover {
+    margin-left: 0;
+}
+
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* même style pour tous les boutons du site */
+button {
+    padding: 10px 40px;
+    background-color: #E1FDF0;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 2px solid #54665E;
+    cursor: pointer;
+}
+
+button:hover {
+    scale: 1.05;
+    box-shadow: 5px 5px 10px rgb(58, 56, 56);
+    transition: 0.3s;
+}
+
+/* grille de cartes de plats (pages A - Z et Search) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.meal-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: #E1FDF0;
+    border-radius: 10px;
+    border: 2px solid #54665E;
+    text-align: center;
+}
+
+/* carte de plat cliquable : pas de marge héritée des liens */
+.meal-card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-left: 0;
+}
+
+.meal-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* petits écrans : les liens de la navigation passent à la ligne */
+@media (max-width: 768px) {
+    #nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #nav div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #nav div a {
+        margin-left: 0;
+    }
+}

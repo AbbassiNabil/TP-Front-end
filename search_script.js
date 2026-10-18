@@ -13,8 +13,18 @@ async function searchMeals() {
     if (query === "") return;
 
     
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(query)}`);
-    const data = await response.json();
+    let data;
+    try {
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(query)}`);
+        data = await response.json();
+    } catch {
+        // l'API ne répond pas
+        const errorMsg = document.createElement('p');
+        errorMsg.textContent = "Impossible de contacter le serveur. Réessayez plus tard.";
+        errorMsg.style.color = "red";
+        resultsContainer.appendChild(errorMsg);
+        return;
+    }
 
     
     if (data.meals === null) {
@@ -33,7 +43,6 @@ async function searchMeals() {
         const img = document.createElement('img');
         img.src = meal.strMealThumb;
         img.alt = meal.strMeal;
-        img.style.width = "200px";
 
         const title = document.createElement('h3');
         title.textContent = meal.strMeal;
@@ -42,8 +51,13 @@ async function searchMeals() {
         category.textContent = meal.strCategory;
 
         
-        mealCard.appendChild(img);
-        mealCard.appendChild(title);
+        // lien vers la recette complète
+        const link = document.createElement('a');
+        link.href = `meal.html?id=${meal.idMeal}`;
+
+        link.appendChild(img);
+        link.appendChild(title);
+        mealCard.appendChild(link);
         mealCard.appendChild(category);
         
         resultsContainer.appendChild(mealCard);

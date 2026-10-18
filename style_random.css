@@ -1,50 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif  
-  }
-  
-nav {
-    background-color: #E1FDF0;
-    
-}
-
 body {background-color: #eceaea;}
-  
-footer {
-    background-color: #54665E;
-    color: #D9D9D9;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 86px;
-    padding-top: 30px;
-}
-  
-footer p {
-    display: grid;
-    place-items: center;
-      
-  }
-  
-  
-a {
-    text-decoration: none;
-    color: #1E1E1E;
-    margin-left: 30px;
-}
-
-a:hover {
-    text-decoration: none;
-    color: #0a7041;
-    margin-left: 30px;
-}
-
-header {
-    border-bottom: 1px solid #54665E;
-}
-
 
 #titolo {
     display: grid;
@@ -57,58 +11,59 @@ header {
     text-align: center;
 }
 
-
-  
-#nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* border: 1px solid black; */
-    padding: 10px 0
-}
-
-#la_fig img {
-    border-radius: 20px;
-    width: 500px;
-}
-
-#ingr {
-    white-space: pre-wrap;
-}  
-  
-  
-.container{
-    width: 1200px;
-    margin: 0 auto;
+#roulette {
+    justify-self: center;
+    margin-top: 10px;
 }
 
 #le_flex_rand {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 40px;
     margin-top: 50px;
+}
+
+/* texte 60 % et photo 40 % de la largeur */
+#le_flex_rand > div:first-child {
+    flex: 3;
+}
+
+#le_flex_rand > div:last-child {
+    flex: 2;
+}
+
+#la_fig img {
+    border-radius: 20px;
+    width: 100%;
 }
 
 #nom {
     font-size: xx-large;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
 }
 
 #area {
     font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#description {
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+#ingr-title {
+    font-size: 20px;
     margin-bottom: 10px;
-    
 }
 
-#roulette {
-    background-color: #E1FDF0;
-    padding: 5px 20px;
-    
-    border-radius: 10px;
-    border: 1px solid grey;
+#ingr {
+    white-space: pre-wrap;
+    line-height: 1.5;
 }
 
-
-
-
-
+@media (max-width: 768px) {
+    #le_flex_rand {
+        flex-direction: column;
+    }
+}

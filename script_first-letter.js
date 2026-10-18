@@ -3,17 +3,12 @@ const mainContainer = document.querySelector('main');
 
 //conteneur de résultats
 const resultContainer = document.createElement('div');
-resultContainer.style.display ="flex";
-resultContainer.style.flexWrap ="wrap";
-resultContainer.style.justifyContent = "center";
-resultContainer.style.gap = "100px";
+resultContainer.className = 'grid-container';
 resultContainer.id = 'meals-result';
 mainContainer.appendChild(resultContainer);
 
 //boucle sur chaque lettre
 alphabetItems.forEach(item => {
-    item.style.cursor = 'pointer';
-
     item.addEventListener('click', () => {
         const letter = item.textContent.trim();
         
@@ -42,16 +37,23 @@ alphabetItems.forEach(item => {
                     const img = document.createElement('img');
                     img.src = meal.strMealThumb;
                     img.alt = meal.strMeal;
-                    img.style.width = "300px";
-                    img.style.borderRadius ="10px";
 
                     const title = document.createElement('p');
                     title.textContent = meal.strMeal;
 
-                    card.appendChild(img);
-                    card.appendChild(title);
+                    // lien vers la recette complète
+                    const link = document.createElement('a');
+                    link.href = `meal.html?id=${meal.idMeal}`;
+
+                    link.appendChild(img);
+                    link.appendChild(title);
+                    card.appendChild(link);
                     resultContainer.appendChild(card);
                 });
+            })
+            // l'API ne répond pas
+            .catch(() => {
+                resultContainer.textContent = "Impossible de contacter le serveur. Réessayez plus tard.";
             });
     });
 });
