@@ -11,19 +11,26 @@ mainContainer.appendChild(resultContainer);
 alphabetItems.forEach(item => {
     item.addEventListener('click', () => {
         const letter = item.textContent.trim();
+
+        // mettre en évidence la lettre choisie
+        alphabetItems.forEach(li => li.classList.remove('active'));
+        item.classList.add('active');
         
-        // vider le conteneur
-        resultContainer.textContent = "";
+        // vider le conteneur et afficher un message d'attente
+        resultContainer.innerHTML = '<p class="message">Loading...</p>';
 
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`)
             .then((response) => {
             return response.json();
         })
             .then(data => {
+                resultContainer.textContent = "";
+
                 // aucun plat pour cette lettre : l'API renvoie meals = null
                 if (data.meals === null) {
                     const errorMsg = document.createElement('p');
                     errorMsg.textContent = "No dish found for this letter.";
+                    errorMsg.className = 'message';
                     resultContainer.appendChild(errorMsg);
                     return;
                 }
@@ -35,7 +42,9 @@ alphabetItems.forEach(item => {
                     
 
                     const img = document.createElement('img');
-                    img.src = meal.strMealThumb;
+                    // image réduite (/medium) chargée seulement quand elle devient visible
+                    img.src = `${meal.strMealThumb}/medium`;
+                    img.loading = 'lazy';
                     img.alt = meal.strMeal;
 
                     const title = document.createElement('p');
@@ -53,7 +62,7 @@ alphabetItems.forEach(item => {
             })
             // l'API ne répond pas
             .catch(() => {
-                resultContainer.textContent = "Unable to reach the server. Please try again later.";
+                resultContainer.innerHTML = '<p class="message">Unable to reach the server. Please try again later.</p>';
             });
     });
 });

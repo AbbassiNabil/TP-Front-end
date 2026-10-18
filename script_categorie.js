@@ -3,6 +3,9 @@ const BTN = document.querySelector("#roulette");
 BTN.addEventListener("click", function (event) {
     event.preventDefault();
 
+    // message d'attente pendant la réponse de l'API
+    document.querySelector("#div_flex").innerHTML = '<p class="message">Loading...</p>';
+
     fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
         .then((response) => {
             return response.json();
@@ -19,8 +22,13 @@ BTN.addEventListener("click", function (event) {
                 T.textContent = categorie.strCategory;
                 const IMG = document.createElement("img");
                 IMG.src = categorie.strCategoryThumb;
+                IMG.loading = "lazy";
                 IMG.alt = categorie.strCategory;
-                P1.appendChild(P);
+                // lien vers les recettes de cette catégorie
+                const LINK = document.createElement("a");
+                LINK.href = `category-meals.html?c=${encodeURIComponent(categorie.strCategory)}`;
+                LINK.appendChild(P);
+                P1.appendChild(LINK);
                 P.appendChild(IMG);
                 P.appendChild(T);
             });
@@ -28,7 +36,7 @@ BTN.addEventListener("click", function (event) {
 
         // l'API ne répond pas
         .catch(() => {
-            document.querySelector("#div_flex").textContent =
-                "Unable to reach the server. Please try again later.";
+            document.querySelector("#div_flex").innerHTML =
+                '<p class="message">Unable to reach the server. Please try again later.</p>';
         });
 });

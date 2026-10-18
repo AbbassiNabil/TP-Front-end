@@ -3,6 +3,7 @@
 Site web de recettes réalisé en HTML, CSS et JavaScript (sans framework).
 Les données proviennent de l'API publique [TheMealDB](https://www.themealdb.com/api.php).
 Le site s'adapte aux petits écrans (téléphone, tablette).
+Police : Poppins (Google Fonts).
 Les textes du site sont en anglais, comme les recettes fournies par l'API (TheMealDB n'existe qu'en anglais).
 
 ## Pages
@@ -10,10 +11,11 @@ Les textes du site sont en anglais, comme les recettes fournies par l'API (TheMe
 | Page | Description |
 |---|---|
 | `index.html` | Page d'accueil. |
-| `categorie.html` | « Our recipes » : affiche la liste des catégories de plats au clic sur le bouton. |
+| `categorie.html` | « Our recipes » : affiche la liste des catégories de plats au clic sur le bouton. Un clic sur une catégorie ouvre ses recettes. |
 | `random.html` | « Food roulette » : propose un plat au hasard (nom, origine, instructions, ingrédients, photo). |
 | `first-letter.html` | « A - Z » : affiche les plats qui commencent par la lettre choisie. |
 | `search.html` | « Search » : recherche un plat par son nom (bouton ou touche Entrée). |
+| `category-meals.html` | Recettes d'une catégorie (`category-meals.html?c=Beef`), avec un lien de retour vers les catégories. |
 | `meal.html` | Recette complète d'un plat, ouverte au clic sur un plat des pages « A - Z » et « Search » (`meal.html?id=...`). |
 
 Si l'API ne répond pas, un message s'affiche sur la page.
@@ -28,6 +30,7 @@ Chaque page possède ensuite sa propre feuille de style (`style_*.css`) et, si b
 - `script_first-letter.js` : `first-letter.html`
 - `search_script.js` : `search.html`
 - `script_meal.js` : `meal.html` (qui réutilise `style_random.css`)
+- `script_category-meals.js` : `category-meals.html` (qui réutilise `style_categorie.css`)
 
 Images : `logo.svg` (logo de la barre de navigation) et `BGI.jpg` (fond de la page d'accueil).
 

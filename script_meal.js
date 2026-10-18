@@ -29,16 +29,17 @@ fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${encodeURIComponent
         FIGURE.replaceChildren(IMG);
 
         // l'API fournit 20 champs d'ingrédients : on ignore ceux qui sont vides
-        let ingredients = "";
+        const P3 = document.querySelector("#ingr");
+        P3.textContent = "";
         for (let i = 1; i <= 20; i++) {
             const ingredient = data.meals[0][`strIngredient${i}`];
             if (ingredient && ingredient.trim() !== "") {
-                ingredients += `${ingredient}\n`;
+                const LI = document.createElement("li");
+                LI.textContent = ingredient;
+                P3.appendChild(LI);
             }
         }
 
-        const P3 = document.querySelector("#ingr");
-        P3.textContent = ingredients;
         document.querySelector("#ingr-title").hidden = false;
     })
 

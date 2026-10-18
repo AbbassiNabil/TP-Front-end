@@ -1,10 +1,23 @@
-/* styles communs à toutes les pages : navigation, pied de page, conteneur */
+/* styles communs à toutes les pages : navigation, pied de page, conteneur, boutons, cartes */
+
+/* couleurs, arrondis et ombres utilisés dans tout le site */
+:root {
+    --green-dark: #54665E;
+    --green: #0a7041;
+    --mint: #E1FDF0;
+    --bg: #faf9f6;
+    --text: #1E1E1E;
+    --muted: #6b7570;
+    --radius: 6px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* le pied de page reste en bas même quand la page est courte */
@@ -12,46 +25,30 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--bg);
+    color: var(--text);
 }
 
 main {
     flex: 1;
 }
 
-nav {
-    background-color: #E1FDF0;
+h1 {
+    font-weight: 700;
 }
 
+/* barre de navigation fixée en haut pendant le défilement */
 header {
-    border-bottom: 1px solid #54665E;
-}
-
-footer {
-    background-color: #54665E;
-    color: #D9D9D9;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 86px;
-    padding-top: 30px;
-    margin-top: 50px;
-}
-
-footer p {
-    display: grid;
-    place-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--mint);
+    border-bottom: 1px solid rgba(84, 102, 94, 0.2);
 }
 
 a {
     text-decoration: none;
-    color: #1E1E1E;
-    margin-left: 30px;
-}
-
-a:hover {
-    text-decoration: none;
-    color: #0a7041;
-    margin-left: 30px;
+    color: var(--text);
 }
 
 #nav {
@@ -61,10 +58,37 @@ a:hover {
     padding: 10px 0
 }
 
-/* le logo reste aligné avec le contenu de la page */
-#logo,
-#logo:hover {
-    margin-left: 0;
+#nav div {
+    display: flex;
+    gap: 30px;
+}
+
+#nav div a {
+    font-weight: 400;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+/* page actuelle mise en évidence dans le menu */
+#nav div a:hover,
+#nav div a.active {
+    color: var(--green);
+    border-bottom-color: var(--green);
+}
+
+footer {
+    background-color: var(--green-dark);
+    color: #D9D9D9;
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 14px;
+}
+
+footer p {
+    display: grid;
+    place-items: center;
 }
 
 .container{
@@ -74,53 +98,105 @@ a:hover {
 }
 
 /* même style pour tous les boutons du site */
-button {
-    padding: 10px 40px;
-    background-color: #E1FDF0;
-    border-radius: 20px;
+button,
+.btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: var(--green-dark);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 15px;
     font-weight: 600;
-    border: 2px solid #54665E;
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
-button:hover {
-    scale: 1.05;
-    box-shadow: 5px 5px 10px rgb(58, 56, 56);
-    transition: 0.3s;
+button:hover,
+.btn:hover {
+    background-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* bouton secondaire (clair) */
+.btn.secondary {
+    background-color: white;
+    color: var(--green-dark);
+}
+
+.btn.secondary:hover {
+    background-color: var(--mint);
 }
 
 /* grille de cartes de plats (pages A - Z et Search) */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
 }
 
 .meal-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 20px;
-    background-color: #E1FDF0;
-    border-radius: 10px;
-    border: 2px solid #54665E;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
     text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* carte de plat cliquable : pas de marge héritée des liens */
+.meal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
 .meal-card a {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-left: 0;
 }
 
+/* toutes les images ont les mêmes proportions */
 .meal-card img {
     width: 100%;
-    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.meal-card:hover img {
+    transform: scale(1.05);
+}
+
+/* le texte reste au-dessus de l'image agrandie au survol */
+.meal-card h3,
+.meal-card a p {
+    padding: 14px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    background-color: white;
+}
+
+.meal-card h3 {
+    padding-bottom: 4px;
+}
+
+/* catégorie du plat (page Search) */
+.meal-card > p {
+    padding: 0 16px 14px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* messages (chargement, aucun résultat, erreur) sur toute la largeur de la grille */
+.message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--muted);
+    padding: 20px 0;
 }
 
 /* petits écrans : les liens de la navigation passent à la ligne */
@@ -131,13 +207,8 @@ button:hover {
     }
 
     #nav div {
-        display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
-    }
-
-    #nav div a {
-        margin-left: 0;
+        gap: 16px;
     }
 }

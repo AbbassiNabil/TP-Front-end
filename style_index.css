@@ -1,26 +1,39 @@
+/* voile sombre sur la photo pour que le titre reste lisible */
 body {
-    background-image: url(BGI.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(BGI.jpg);
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
 h1 {
-    display: grid;
-    place-items: center;
-    font-family: sans-serif;
-    margin-top: 250px;
-    font-size: 100px;
+    font-size: 80px;
     text-align: center;
-    text-shadow:
-    2px 2px 3px rgb(18, 19, 18),
-    0 0 1em rgb(128, 167, 194),
-    0 0 0.2em rgb(14, 197, 188);
-    color: #E1FDF0;
+    color: white;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+footer {
+    margin-top: 0;
 }
 
 @media (max-width: 768px) {
     h1 {
-        margin-top: 120px;
-        font-size: 50px;
+        font-size: 44px;
     }
 }

@@ -1,25 +1,27 @@
-body {background-color: #eceaea;}
-
 #titolo {
     display: grid;
     place-self: center;
-    gap: 5px;
-    margin-top: 30px;
+    gap: 6px;
+    margin-top: 50px;
 }
 
 #titolo p, #titolo span   {
     text-align: center;
 }
 
+#titolo span {
+    color: var(--muted);
+}
+
 #roulette {
     justify-self: center;
-    margin-top: 10px;
+    margin-top: 14px;
 }
 
 #le_flex_rand {
     display: flex;
     flex-direction: row;
-    gap: 40px;
+    gap: 48px;
     margin-top: 50px;
 }
 
@@ -33,33 +35,56 @@ body {background-color: #eceaea;}
 }
 
 #la_fig img {
-    border-radius: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-hover);
     width: 100%;
 }
 
 #nom {
-    font-size: xx-large;
-    margin: 0 0 10px 0;
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
 }
 
+/* origine du plat sous forme d'étiquette */
 #area {
-    font-size: 20px;
-    margin-bottom: 20px;
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green);
+    background-color: var(--mint);
+    border-radius: var(--radius);
+}
+
+#area:empty {
+    display: none;
 }
 
 #description {
-    line-height: 1.5;
-    margin-bottom: 30px;
+    line-height: 1.7;
+    margin-bottom: 32px;
 }
 
 #ingr-title {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
+/* liste des ingrédients avec des puces */
 #ingr {
-    white-space: pre-wrap;
-    line-height: 1.5;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px 24px;
+}
+
+#ingr li::before {
+    content: "•";
+    color: var(--green);
+    font-weight: 700;
+    margin-right: 8px;
 }
 
 @media (max-width: 768px) {

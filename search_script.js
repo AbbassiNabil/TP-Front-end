@@ -12,25 +12,31 @@ async function searchMeals() {
 
     if (query === "") return;
 
+    // message d'attente pendant la réponse de l'API
+    resultsContainer.innerHTML = '<p class="message">Loading...</p>';
+
     
     let data;
     try {
         const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(query)}`);
         data = await response.json();
     } catch {
+        resultsContainer.textContent = "";
         // l'API ne répond pas
         const errorMsg = document.createElement('p');
         errorMsg.textContent = "Unable to reach the server. Please try again later.";
-        errorMsg.style.color = "red";
+        errorMsg.className = 'message';
         resultsContainer.appendChild(errorMsg);
         return;
     }
+
+    resultsContainer.textContent = "";
 
     
     if (data.meals === null) {
         const errorMsg = document.createElement('p');
         errorMsg.textContent = "No dish found for this search.";
-        errorMsg.style.color = "red"; 
+        errorMsg.className = 'message';
         resultsContainer.appendChild(errorMsg);
         return;
     }
@@ -41,7 +47,9 @@ async function searchMeals() {
         mealCard.className = 'meal-card';
 
         const img = document.createElement('img');
-        img.src = meal.strMealThumb;
+        // image réduite (/medium) chargée seulement quand elle devient visible
+        img.src = `${meal.strMealThumb}/medium`;
+        img.loading = 'lazy';
         img.alt = meal.strMeal;
 
         const title = document.createElement('h3');
