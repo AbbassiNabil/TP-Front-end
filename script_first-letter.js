@@ -25,6 +25,14 @@ alphabetItems.forEach(item => {
             return response.json();
         })
             .then(data => {
+                // aucun plat pour cette lettre : l'API renvoie meals = null
+                if (data.meals === null) {
+                    const errorMsg = document.createElement('p');
+                    errorMsg.textContent = "Aucun plat trouvé pour cette lettre.";
+                    resultContainer.appendChild(errorMsg);
+                    return;
+                }
+
                 // boucle sur les résultats
                 data.meals.forEach(meal => {
                     const card = document.createElement('article');

@@ -2,7 +2,7 @@ const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 const resultsContainer = document.getElementById('results-container');
 
-searchButton.addEventListener('click', async () => {
+async function searchMeals() {
     const query = searchInput.value.trim();
     
     
@@ -13,7 +13,7 @@ searchButton.addEventListener('click', async () => {
     if (query === "") return;
 
     
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(query)}`);
     const data = await response.json();
 
     
@@ -48,4 +48,13 @@ searchButton.addEventListener('click', async () => {
         
         resultsContainer.appendChild(mealCard);
     });
+}
+
+searchButton.addEventListener('click', searchMeals);
+
+// lancer la recherche aussi avec la touche Entrée
+searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        searchMeals();
+    }
 });

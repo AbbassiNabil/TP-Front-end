@@ -20,10 +20,20 @@ BTN.addEventListener("click", function (event) {
 
       const IMG = document.createElement("img");
       IMG.src = data.meals[0].strMealThumb;
+      IMG.alt = data.meals[0].strMeal;
       const FIGURE = document.querySelector("figure");
       FIGURE.replaceChildren(IMG);
 
+      // l'API fournit 20 champs d'ingrédients : on ignore ceux qui sont vides
+      let ingredients = "\n";
+      for (let i = 1; i <= 20; i++) {
+        const ingredient = data.meals[0][`strIngredient${i}`];
+        if (ingredient && ingredient.trim() !== "") {
+          ingredients += `${ingredient}\n`;
+        }
+      }
+
       const P3 = document.querySelector("#ingr");
-      P3.textContent = `\n${data.meals[0].strIngredient1}\n${data.meals[0].strIngredient2}\n${data.meals[0].strIngredient3}\n${data.meals[0].strIngredient4}\n${data.meals[0].strIngredient5}\n${data.meals[0].strIngredient6}\n${data.meals[0].strIngredient7}\n${data.meals[0].strIngredient8}\n${data.meals[0].strIngredient9}\n${data.meals[0].strIngredient10}\n${data.meals[0].strIngredient11}\n${data.meals[0].strIngredient12}\n${data.meals[0].strIngredient13}\n${data.meals[0].strIngredient14}\n${data.meals[0].strIngredient15}\n${data.meals[0].strIngredient16}\n${data.meals[0].strIngredient17}\n${data.meals[0].strIngredient18}\n${data.meals[0].strIngredient19}\n${data.meals[0].strIngredient20}\n`;
+      P3.textContent = ingredients;
     });
 });
